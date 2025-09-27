@@ -1,4 +1,4 @@
-// sending data using post method's JSON body , post method is that we have created something in front-end and we have to send that in backend 
+// sending data using post method's query parameter
 
 let myServer = require('express');  // as we know require is just like import 
 
@@ -8,17 +8,17 @@ app.use(myServer.json())  // we should use this
 
 app.post('/login' , (request , response) => {  // post method's API cant run in direct browser like if we run http://localhost:8000/login direct in a browser it wont work bcoz post method's API cant run in direct browser but get method's API can run 
     console.log('This is request' ,request)
-    console.log("This is request's body : ",request.body);  // body's data comes from JSON 
+    console.log('This is the data which we fetched from Query parameter' , request.query)
     response.send({
         status : 1,
         message : 'Log in info',
-        data : request.body
+        data : request.query
     })
     
 })
 
 app.listen('8000')
-
+// hit this http://localhost:8000/login?name=pj&email=pj@ in thunderclient 
 
 /*
 What we did here:
@@ -39,4 +39,12 @@ username & password and clicks the login button.
 It’s stored in request because the request object represents everything that comes from the client (frontend).
 */
 
-// In short : body ka data json me jata hai 
+// query ka data url se aapko milta hai 
+
+/**
+1. request.query comes from the URL
+request.query is used to read query parameters from the URL.
+http://localhost:8000/news?token=12345   , here after question mark(?) is the query parameter
+
+
+ */

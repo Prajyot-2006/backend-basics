@@ -20,8 +20,8 @@ let server = http.createServer((request , respnose) => {  // as we know request 
     }
 
     if(request.url == '/products/cart-items'){ // http://localhost:4000/products/cart-items , // if request.url == '/products/cart-items' then backend should responds with  cart-items data 
-        let cartItems = [
-            {
+        let cartItems = [  // this is a normla array
+            {   // this is a normal object
                 productId: '313810938994',
                 productName: 'Tshirt Black',
                 quantity: 2,
@@ -34,7 +34,7 @@ let server = http.createServer((request , respnose) => {  // as we know request 
                 price: 800
             }
         ];
-        respnose.end(JSON.stringify(cartItems));
+        respnose.end(JSON.stringify(cartItems));  // we must convert it into string before sending to frontend or while making API 
     }
 
     if(request.url == '/'){ // http://localhost:4000/

@@ -10,5 +10,5 @@ let deleteQtyt = () => {
 let setQtyt = () => {
     return 2;
 }
-let name = 'prajyot'w
+let name = 'prajyot'
 module.exports = {updateQtyt , deleteQtyt , setQtyt , name}

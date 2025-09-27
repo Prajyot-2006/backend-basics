@@ -1,8 +1,8 @@
-let myServer = require('express');  // as we know require is just like import 
+let myServer = require('express');  // as we know require is just like import
 
 let app = myServer();
 
-app.get('/' , (request , response) => {   // we are creating a route from get method and / means standard local host port ie http://localhost:8000
+app.get('/' , (request , response) => {   // we are creating a route from get method and '/' means standard local host port ie http://localhost:8000
     response.send({ // we use send(in express js) instead of end(from nodejs)
         status : 1,
         message : 'Home Page API'
@@ -24,7 +24,7 @@ app.get('/products' , (request , response) => {  // we can make multiple routes 
             productName: 'Full Sleeve Shirt'
         }
     ];
-    response.send(products)
+    response.send(products)  // dont need to do JSON.Stringify()
 })
 
 
@@ -47,7 +47,7 @@ app.get('/products/cart-items', (request , response) => {
 })
 
 
-app.post('/login' , (request , response) => {  // post method's API cant run in direct browser like if we run http://localhost:8000/login direct in a browser it wont work bcoz post method's API cant run in direct browser but get method's API can run 
+app.post('/login' , (request , response) => {  // post method's API cant run direct in browser like if we run http://localhost:8000/login direct in a browser it wont work bcoz post method's API cant run in direct browser but get method's API can run 
     console.log(request.body);
     response.send({
         status : 1,
